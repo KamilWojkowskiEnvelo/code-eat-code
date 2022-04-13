@@ -1,3 +1,15 @@
-<p>restaurants works!</p>
+<mat-grid-list cols="2" rowHeight="100px">
+  <mat-grid-tile
+    *ngFor="let restaurantTile of restaurantsTiles$ | async"
+    [colspan]="restaurantTile.cols"
+    [rowspan]="restaurantTile.rows"
+    [style.background]="restaurantTile.color">
+    <a [routerLink]="[restaurantTile.restaurant.id]">
+      {{ restaurantTile.restaurant.name }}
+    </a>
+  </mat-grid-tile>
+</mat-grid-list>
 
-<button mat-raised-button color="primary">Primary</button>
+<mat-form-field>
+  <input matInput />
+</mat-form-field>

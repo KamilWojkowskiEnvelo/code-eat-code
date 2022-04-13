@@ -11,10 +11,12 @@ import { ShellComponent } from './shell.component';
       {
         path: '',
         component: ShellComponent,
-      },
-      {
-        path: 'restaurants',
-        loadChildren: async () => (await import('../features/restaurants/restaurants.module')).RestaurantsModule,
+        children: [
+          {
+            path: 'restaurants',
+            loadChildren: async () => (await import('../features/restaurants/restaurants.module')).RestaurantsModule,
+          },
+        ],
       },
     ]),
   ],

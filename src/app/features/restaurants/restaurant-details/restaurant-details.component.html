@@ -1,0 +1,8 @@
+<ng-container *ngIf="restaurant$ | async as restaurant; else noRestaurant">
+  <h2>Witaj w naszej restauracji</h2>
+  <p>{{ restaurant.name }}</p>
+</ng-container>
+
+<ng-template #noRestaurant>
+  <p>pusta kiermana</p>
+</ng-template>
