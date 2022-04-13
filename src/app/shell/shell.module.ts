@@ -8,6 +8,14 @@ import { ShellComponent } from './shell.component';
     RouterModule.forChild([
       // tutaj zacznij dodawać routing aplikacji
       // nie zapomnij o przekierwaniu na domyślny path z  path === ''
+      {
+        path: '',
+        component: ShellComponent,
+      },
+      {
+        path: 'restaurants',
+        loadChildren: async () => (await import('../features/restaurants/restaurants.module')).RestaurantsModule,
+      },
     ]),
   ],
 })
