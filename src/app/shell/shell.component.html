@@ -2,5 +2,19 @@
 <main>
   <!-- Tu będzie szedł content <a [routerLink]="['..', 'auth']">auth</a>
   <br /> -->
+
+  <p>Dzisiaj jest {{ today }}.</p>
+  <ng-container *ngIf="order$ | async as order">
+    <ol *ngIf="order.length">
+      Twoje zamówienie:
+      <li *ngFor="let orderItem of order">{{ orderItem.item.name }} z {{ orderItem.restaurantName }}</li>
+    </ol>
+  </ng-container>
+
+  <nav>
+    <a routerLink="restaurants">Restauracje</a> |
+    <a routerLink="order">Moje zamówienie</a>
+  </nav>
+
   <router-outlet></router-outlet>
 </main>

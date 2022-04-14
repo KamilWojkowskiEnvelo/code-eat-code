@@ -1,15 +1,23 @@
-<mat-grid-list cols="2" rowHeight="100px">
-  <mat-grid-tile
-    *ngFor="let restaurantTile of restaurantsTiles$ | async"
-    [colspan]="restaurantTile.cols"
-    [rowspan]="restaurantTile.rows"
-    [style.background]="restaurantTile.color">
-    <a [routerLink]="[restaurantTile.restaurant.id]">
-      {{ restaurantTile.restaurant.name }}
-    </a>
-  </mat-grid-tile>
-</mat-grid-list>
+<ng-container *ngIf="restaurantsTiles$ | async as restaurantsTiles; else loader">
+  <mat-grid-list cols="2" rowHeight="100px">
+    <mat-grid-tile
+      *ngFor="let restaurantTile of restaurantsTiles"
+      [colspan]="restaurantTile.cols"
+      [rowspan]="restaurantTile.rows"
+      [style.background]="restaurantTile.color">
+      <a [routerLink]="[restaurantTile.restaurant.id]">
+        {{ restaurantTile.restaurant.name }}
+      </a>
+    </mat-grid-tile>
+  </mat-grid-list>
+</ng-container>
 
-<mat-form-field>
+<ng-template #loader>
+  <div style="display: flex; justify-content: center">
+    <mat-spinner [diameter]="30"></mat-spinner>
+  </div>
+</ng-template>
+
+<!-- <mat-form-field>
   <input matInput />
-</mat-form-field>
+</mat-form-field> -->

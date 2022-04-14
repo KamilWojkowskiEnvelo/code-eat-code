@@ -22,7 +22,13 @@ export class RestaurantsApiService {
       {
         id: 1,
         name: 'Kura',
-        menu: [],
+        menu: [
+          {
+            name: 'Dobry burger',
+            price: 19_90,
+            description: 'Pyszny burget z czystej wołowiny. Polecamy!',
+          },
+        ],
       },
       {
         id: 2,

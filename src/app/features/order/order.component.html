@@ -1,0 +1,5 @@
+<p>order works!</p>
+
+<ng-container *ngIf="order$ | async as order">
+  <app-meal-tile *ngFor="let orderItem of order" [meal]="orderItem.item"></app-meal-tile>
+</ng-container>

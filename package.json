@@ -11,8 +11,7 @@
     "test": "jest",
     "lint": "ng lint",
     "lint:style": "npx stylelint \"**/*.scss\"",
-    "prettier": "prettier --write",
-    "prepare": "husky install"
+    "prettier": "prettier --write"
   },
   "private": true,
   "dependencies": {

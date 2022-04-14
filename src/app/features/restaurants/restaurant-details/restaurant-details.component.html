@@ -1,6 +1,12 @@
 <ng-container *ngIf="restaurant$ | async as restaurant; else noRestaurant">
   <h2>Witaj w naszej restauracji</h2>
   <p>{{ restaurant.name }}</p>
+
+  <app-meal-tile *ngFor="let meal of restaurant.menu" [meal]="meal">
+    <mat-card-actions>
+      <button mat-button (click)="order(meal, restaurant)">Zamów</button>
+    </mat-card-actions>
+  </app-meal-tile>
 </ng-container>
 
 <ng-template #noRestaurant>
